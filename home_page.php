@@ -1,79 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Modern Cities Portal</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
 }
 
-/* Style the header */
 header {
-  background-color: #666;
-  padding: 30px;
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+  padding: 40px 0 30px 0;
   text-align: center;
-  font-size: 35px;
-  color: white;
+  font-size: 40px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(78,84,200,0.1);
+  border-radius: 0 0 16px 16px;
 }
 
-/* Create two columns/boxes that floats next to each other */
+section {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  overflow: hidden;
+  padding: 0;
+}
+
 nav {
   float: left;
-  width: 30%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
+  width: 28%;
+  background: #f0f2f6;
+  padding: 30px 20px;
+  min-height: 320px;
+  border-right: 1px solid #e0e0e0;
 }
 
-/* Style the list inside the menu */
 nav ul {
   list-style-type: none;
   padding: 0;
 }
+nav ul li {
+  margin-bottom: 18px;
+}
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  color: #4e54c8;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+nav ul li a:hover {
+  background: #e0e0e0;
+  color: #222;
+}
 
 article {
   float: left;
-  padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
+  padding: 30px 32px;
+  width: 72%;
+  background-color: #fff;
+  min-height: 320px;
 }
 
-/* Clear floats after the columns */
 section::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Style the footer */
 footer {
-  background-color: #777;
-  padding: 10px;
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+  padding: 18px 0;
   text-align: center;
-  color: white;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 40px;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 8px rgba(78,84,200,0.08);
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
+  section {
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 8px;
+  }
   nav, article {
+    float: none;
     width: 100%;
-    height: auto;
+    min-height: auto;
+    border-right: none;
+    padding: 20px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    font-size: 28px;
+    padding: 24px 0 18px 0;
+    border-radius: 0 0 8px 8px;
+  }
+  footer {
+    font-size: 15px;
+    padding: 12px 0;
+    border-radius: 8px 8px 0 0;
   }
 }
 </style>
 </head>
 <body>
 
-<h2>CSS Layout Float</h2>
-<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
-<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+<div style="max-width:900px;margin:30px auto 0 auto;padding:0 16px;">
+  <h2 style="color:#4e54c8;font-size:28px;margin-bottom:10px;font-family:'Montserrat',Arial,sans-serif;">Welcome to the Cities Portal</h2>
+  <p style="color:#444;font-size:17px;margin-bottom:8px;">Explore information about London, Paris, and Tokyo. Select a city from the menu to view details.</p>
+  <p style="color:#888;font-size:15px;">Resize the browser window to see the responsive effect.</p>
+</div>
 
 <header>
   <h2>Cities</h2>
@@ -95,13 +148,13 @@ footer {
         $page=$_GET['page'];
         switch($page){
             case'london';
-            include 'modules/london.php';
+            include 'london.php';
             break;
             case'paris';
-            include 'modules/paris.php';
+            include 'paris.php';
             break;
             case'tokyo';
-            include 'modules/tokyo.php';
+            include 'tokyo.php';
             break;
         }
     }
@@ -112,7 +165,7 @@ footer {
 </section>
 
 <footer>
-  <p>Footer</p>
+  <p>&copy; 2025 Cities Portal. All rights reserved.</p>
 </footer>
 
 </body>
